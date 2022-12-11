@@ -2,70 +2,49 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BattleHandler : MonoBehaviour
 {
-    private static BattleHandler instance;
-    public static BattleHandler GetInstance()
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private TestStatsEnemy playerStats;
+    [SerializeField] private TestStatsEnemy enemy1Stats;
+
+    [SerializeField] private Transform playerStation;
+    [SerializeField] private Transform enemyStation_1;
+    [SerializeField] private Transform enemyStation_2;
+    [SerializeField] private Transform enemyStation_3;
+
+    [SerializeField] private TMP_Text dialogueText;
+
+    [SerializeField] private BattleState state;
+    private enum BattleState
     {
-        return instance;
-    }
-
-    [SerializeField] private Transform Enemy1;
-    [SerializeField] private Transform SirNugget;
-
-    private CharacterBattle PlayerCharacterBattle;
-    private CharacterBattle EnemyCharacterBattle;
-    private GameState state;
-
-    private enum GameState
-    {
-        WaitingForPlayer,
-        Busy,
-    }
-
-    private void Awake()
-    {
-        instance = this;
+        Start, 
+        PlayerTurn, 
+        EnemyTurn,
+        Won, 
+        Lost, 
+        Busy
     }
     // Start is called before the first frame update
     void Start()
     {
-        PlayerCharacterBattle = SpawnCharacter(true, SirNugget);
-        EnemyCharacterBattle = SpawnCharacter(false, Enemy1);
-        state = GameState.WaitingForPlayer;
+        state = BattleState.Start;
+        StartCoroutine(Setup());
     }
-
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Setup()
     {
-        if(state == GameState.WaitingForPlayer)
-        {
-            if (Input.GetButtonDown("Confirm"))
-            {
-                Debug.Log("Player Attacked");
-                //set state to busy, play Attack Animation and when done, return state to WaitingForPlayer
-                state = GameState.Busy;
-                PlayerCharacterBattle.Attack(EnemyCharacterBattle, () => { state = GameState.WaitingForPlayer; });
-            }
-        }
-        
-    }
+        GameObject playerGO = Instantiate(player,playerStation);
+        playerStats = playerGO.GetComponent<TestStatsEnemy>();
+        GameObject enemy1GO = Instantiate(enemy,enemyStation_1);
+        enemy1Stats = enemy1GO.GetComponent<TestStatsEnemy>();
 
-    private CharacterBattle SpawnCharacter(bool isPlayerTeam, Transform character)
-    {
-        Vector3 position;
-        if (isPlayerTeam)
-        {
-            position = new Vector3(-6f, 0, 0);
-        }
-        else
-        {
-            position = new Vector3(5, 0, 0);
-        }
-        Transform characterTransform =  Instantiate(character, position, Quaternion.identity);
-        CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
-
-        return characterBattle;
+        dialogueText.text = "the battle has begun.";
+        yield return new WaitForSeconds(2f);
+        dialogueText.text = "Player turn:";
+        state = BattleState.PlayerTurn;
     }
 }

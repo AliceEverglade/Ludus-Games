@@ -6,20 +6,10 @@ using UnityEngine;
 public class CharacterBattle : MonoBehaviour
 {
     private Animator Anim;
-
-    private CharacterState state;
-    private enum CharacterState
-    {
-        Idle,
-        Sliding,
-        casting,
-        busy
-    }
-
+    
     private void Awake()
     {
         Anim = GetComponent<Animator>();
-        state = CharacterState.Idle;
 
     }
     // Start is called before the first frame update
@@ -31,31 +21,20 @@ public class CharacterBattle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
-
-    public void Setup(bool isPlayerTeam)
+    public void MeleeAttack(GameObject target)
     {
-        //set idle anim or spawning anim
-    }
-
-    public Vector3 GetPosition()
-    {
-        return transform.position;
-    }
-
-    public void Attack(CharacterBattle target, Action onAttackComplete)
-    {
-        Vector3 attackDir = target.GetPosition() - GetPosition().normalized;
-        Debug.Log(target.name);
-        //play attack animation
         Anim.SetBool("isAttacking", true);
-        // when done go back to idle
-        onAttackComplete();
+        //get target's hp, subtract damage from it.
+        //play hurt animation from target.
+        //apply any effects the melee attack has.
     }
 
-    public void FinishAttack()
+    public void FinishAttack(string attackType)
     {
+        //set back to idle
+        //Anim.SetBool(attackType, false);
         Anim.SetBool("isAttacking", false);
     }
 }

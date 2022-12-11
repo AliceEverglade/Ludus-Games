@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5304774488151306151}
   - component: {fileID: 2955869124019197136}
+  - component: {fileID: 4606264987576244543}
   - component: {fileID: 3916291874187915413}
   - component: {fileID: 142226701770083740}
   m_Layer: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3504745578366505054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1.01, z: 0}
+  m_LocalPosition: {x: 0, y: 1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,6 +87,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4606264987576244543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504745578366505054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5649b8a5d88469a43ba809193731bfd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Sir Nugget
+  damage: 20
+  maxHP: 100
+  currentHP: 100
 --- !u!95 &3916291874187915413
 Animator:
   serializedVersion: 4
@@ -96,7 +113,7 @@ Animator:
   m_GameObject: {fileID: 3504745578366505054}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 26b24231814dbbd4faf0abd66d130e10, type: 2}
+  m_Controller: {fileID: 9100000, guid: 279dbfad5c2ed3540ac8af6c7fc5f5c5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

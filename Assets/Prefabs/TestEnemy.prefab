@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5074392974640768891}
   - component: {fileID: 3316663666224922466}
   - component: {fileID: 3565669273622715516}
+  - component: {fileID: 2920165054683157283}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949879370265078838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.88, y: 0.27, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1.2793, y: 2.3967, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6755b44afef8c8342b8387d632a2fe44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2920165054683157283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949879370265078838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5649b8a5d88469a43ba809193731bfd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Test Enemy
+  damage: 20
+  maxHP: 100
+  currentHP: 100
