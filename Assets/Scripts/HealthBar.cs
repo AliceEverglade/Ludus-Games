@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider hpBar;
     [SerializeField] private GameObject target;
+    [SerializeField] private TMP_Text hpText;
     private void Start()
     {
 
@@ -17,9 +19,10 @@ public class HealthBar : MonoBehaviour
         SetUI();
     }
 
-    private void SetUI()
+    public void SetUI()
     {
-        hpBar.maxValue = target.GetComponent<TestStatsEnemy>().maxHP;
-        hpBar.value = target.GetComponent<TestStatsEnemy>().currentHP / hpBar.maxValue;
+        hpBar.maxValue = target.GetComponentInChildren<TestStatsEnemy>().maxHP;
+        hpBar.value = target.GetComponentInChildren<TestStatsEnemy>().currentHP;
+        hpText.text = target.GetComponentInChildren<TestStatsEnemy>().currentHP.ToString();
     }
 }
