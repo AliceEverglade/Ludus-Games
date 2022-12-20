@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2225ba0c9ea998240a5a50f370ec64bb, type: 3}
+  m_Name: FennecFox
+  m_EditorClassIdentifier: 
+  name: 
+  isDead: 0
+  isBoss: 0
+  actionPoints: 0
+  maxHP: 0
+  currentHP: 0
+  damage: 0
+  specialDamage: 0
+  critChance: 0
+  critDamage: 0
+  healing: 0
+  prefab: {fileID: 0}

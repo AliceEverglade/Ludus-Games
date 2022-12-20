@@ -8,27 +8,33 @@ using TMPro;
 public class BattleHandler : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject enemy;
-    private TestStatsEnemy playerStats;
-    private TestStatsEnemy enemy1Stats;
+    [SerializeField] private GameObject enemy1;
+    [SerializeField] private GameObject enemy2;
+
+    [SerializeField] private GameStateSO index;
+    private EncounterSO encounter;
+    private PlayerSO playerStats;
+    private EnemySO enemy1Stats;
+    private EnemySO enemy2Stats;
+
+    private int target = 1;
 
     [SerializeField] private Transform playerStation;
     [SerializeField] private Transform enemyStation_1;
     [SerializeField] private Transform enemyStation_2;
-    [SerializeField] private Transform enemyStation_3;
 
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private Slider playerHP;
     [SerializeField] private Slider enemy1HP;
     [SerializeField] private Slider enemy2HP;
-    [SerializeField] private Slider enemy3HP;
 
     [SerializeField] private BattleState state;
     private enum BattleState
     {
         Start, 
         PlayerTurn, 
-        EnemyTurn,
+        Enemy1Turn,
+        Enemy2Turn,
         Won, 
         Lost, 
         Busy
@@ -41,10 +47,16 @@ public class BattleHandler : MonoBehaviour
     }
     private IEnumerator Setup()
     {
-        GameObject playerGO = Instantiate(player,playerStation);
-        playerStats = playerGO.GetComponent<TestStatsEnemy>();
-        GameObject enemy1GO = Instantiate(enemy,enemyStation_1);
-        enemy1Stats = enemy1GO.GetComponent<TestStatsEnemy>();
+        GameObject playerGO = Instantiate(player, playerStation);
+        playerStats = playerGO.GetComponent<PlayerSO>();
+        enemy1 = encounter.enemy1.prefab;
+        GameObject enemy1GO = Instantiate(enemy1, enemyStation_1);
+        enemy1Stats = enemy1GO.GetComponent<EnemySO>();
+        enemy2 = encounter.enemy2.prefab;
+        GameObject enemy2GO = Instantiate(enemy2, enemyStation_2);
+        enemy2Stats = enemy2GO.GetComponent<EnemySO>();
+
+        
 
         dialogueText.text = "the battle has begun.";
         yield return new WaitForSeconds(2f);
@@ -56,7 +68,7 @@ public class BattleHandler : MonoBehaviour
 
     private void PlayerTurn()
     {
-        dialogueText.text = "choose an action:";
+        dialogueText.text = "you have " + playerStats.actionPoints + " left.";
     }
 
     public void onAttackButton()
@@ -76,8 +88,13 @@ public class BattleHandler : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        //target Enemy
+        if(target == 1)
+        {
+            
+        }
         //damage enemy
-        enemy1Stats.isDead = enemy1Stats.TakeDamage(playerStats.damage);
+        enemy1Stats.isDead = enemy1Stats.TakeDamage(playerStats.meleeDamage);
         yield return new WaitForSeconds(2f);
         if (enemy1Stats.isDead)
         {
@@ -86,7 +103,7 @@ public class BattleHandler : MonoBehaviour
         }
         else
         {
-            state = BattleState.EnemyTurn;
+            state = BattleState.Enemy1Turn;
             StartCoroutine(EnemyTurn());
         }
     }
