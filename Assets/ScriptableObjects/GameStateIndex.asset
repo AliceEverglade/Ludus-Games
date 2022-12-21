@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d0c524949523f489eb4028576e53d8, type: 3}
   m_Name: GameStateIndex
   m_EditorClassIdentifier: 
-  EncounterIndex: 0
+  EncounterIndex: 5
+  EncounterList: []
