@@ -93,6 +93,28 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 733
+      y: 3157
+      width: 203
+      height: 153
+    spriteID: 4e6a162e053d42543aea7a0d1e7c6af4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 733, y: 3157}
+    spritePosition: {x: 884, y: 901}
   - name: finnicfox linkerb hand
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -100,8 +122,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 927
-      y: 2587
+      x: 733
+      y: 3318
       width: 98
       height: 135
     spriteID: b66dce9650e2e9c47b49ca72a138f7e5
@@ -397,7 +419,7 @@ ScriptedImporter:
     - {x: 23, y: 24}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 927, y: 2587}
+    uvTransform: {x: 733, y: 3318}
     spritePosition: {x: 743, y: 632}
   - name: finnicfox rechter hand
     originalName: 
@@ -406,8 +428,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 927
-      y: 2730
+      x: 733
+      y: 3461
       width: 96
       height: 133
     spriteID: 6d8ae3151a6537b4ca58e13a2ea5d299
@@ -692,7 +714,7 @@ ScriptedImporter:
     - {x: 22, y: 23}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 927, y: 2730}
+    uvTransform: {x: 733, y: 3461}
     spritePosition: {x: 1162, y: 254}
   - name: finnicfox wapen
     originalName: 
@@ -6188,13 +6210,23 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: Layer 1
+    spriteName: Layer 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4e6a162e053d42543aea7a0d1e7c6af4
+    layerID: 162
+    mosaicPosition: {x: 733, y: 3157}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: finnicfox linkerb hand
     spriteName: finnicfox linkerb hand
     isGroup: 0
     parentIndex: -1
     spriteID: b66dce9650e2e9c47b49ca72a138f7e5
     layerID: 124
-    mosaicPosition: {x: 927, y: 2587}
+    mosaicPosition: {x: 733, y: 3318}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -6204,7 +6236,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 6d8ae3151a6537b4ca58e13a2ea5d299
     layerID: 125
-    mosaicPosition: {x: 927, y: 2730}
+    mosaicPosition: {x: 733, y: 3461}
     flatten: 0
     isImported: 1
     isVisible: 1
