@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Desert2
   m_EditorClassIdentifier: 
   name: 
-  isBossEncounter: 0
-  index: 0
-  difficultyModifier: 0
-  enemy1: {fileID: 0}
-  enemy2: {fileID: 0}
+  isBossEncounter: 1
+  index: 4
+  difficultyModifier: 1
+  enemy1: {fileID: 11400000, guid: ba903ad03f66e114884cded05295dd39, type: 2}
+  enemy2: {fileID: 11400000, guid: 97de44c9e4c490643951fccdc2b2cb5c, type: 2}
   prefab: {fileID: 0}

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Mountain3
   m_EditorClassIdentifier: 
   name: 
-  isBossEncounter: 0
-  index: 0
-  difficultyModifier: 0
+  isBossEncounter: 1
+  index: 7
+  difficultyModifier: 1
   enemy1: {fileID: 0}
   enemy2: {fileID: 0}
   prefab: {fileID: 0}

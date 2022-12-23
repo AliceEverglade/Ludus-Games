@@ -11,13 +11,14 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private GameObject enemy1;
     [SerializeField] private GameObject enemy2;
 
-    [SerializeField] private GameStateSO index;
+    [SerializeField] private GameStateSO gameState;
     private EncounterSO encounter;
     private PlayerSO playerStats;
     private EnemySO enemy1Stats;
     private EnemySO enemy2Stats;
+    private EnemySO target;
 
-    private int target = 1;
+    private bool targetEnemy1 = true;
 
     [SerializeField] private Transform playerStation;
     [SerializeField] private Transform enemyStation_1;
@@ -47,14 +48,28 @@ public class BattleHandler : MonoBehaviour
     }
     private IEnumerator Setup()
     {
+        //encounter init
+        encounter = gameState.EncounterList[gameState.EncounterIndex-1];
+        Debug.Log("Encounter Loaded. number: " + gameState.EncounterIndex);
+
+        //player init
+        playerStats = gameState.player;
+        player = playerStats.prefab;
         GameObject playerGO = Instantiate(player, playerStation);
-        playerStats = playerGO.GetComponent<PlayerSO>();
-        enemy1 = encounter.enemy1.prefab;
+        Debug.Log(playerStats.name + " loaded");
+
+
+        //enemy 1 init
+        enemy1Stats = encounter.enemy1;
+        enemy1 = enemy1Stats.prefab;
         GameObject enemy1GO = Instantiate(enemy1, enemyStation_1);
-        enemy1Stats = enemy1GO.GetComponent<EnemySO>();
-        enemy2 = encounter.enemy2.prefab;
+        
+
+        //enemy 2 init
+        enemy2Stats = encounter.enemy2;
+        enemy2 = enemy2Stats.prefab;
         GameObject enemy2GO = Instantiate(enemy2, enemyStation_2);
-        enemy2Stats = enemy2GO.GetComponent<EnemySO>();
+        
 
         
 
@@ -68,9 +83,18 @@ public class BattleHandler : MonoBehaviour
 
     private void PlayerTurn()
     {
-        dialogueText.text = "you have " + playerStats.actionPoints + " left.";
+        if (playerStats.actionPoints > 0)
+        {
+            dialogueText.text = "you have " + playerStats.actionPoints + " Action Points left.";
+        }
+        else
+        {
+            EnemyTurn();
+        }
+        
     }
 
+    #region button functions
     public void onAttackButton()
     {
         if(state != BattleState.PlayerTurn)
@@ -85,18 +109,33 @@ public class BattleHandler : MonoBehaviour
 
         StartCoroutine(PlayerHeal());
     }
+    public void OnDefenseButton()
+    {
+        if (state != BattleState.PlayerTurn)
+            return;
 
+        StartCoroutine(PlayerDefense());
+    }
+    public void onRunButton()
+    {
+        if (state != BattleState.PlayerTurn)
+            return;
+        StartCoroutine(PlayerRun());
+    }
+    #endregion
+
+    #region action enumerators
     IEnumerator PlayerAttack()
     {
         //target Enemy
-        if(target == 1)
+        if(target)
         {
             
         }
         //damage enemy
         enemy1Stats.isDead = enemy1Stats.TakeDamage(playerStats.meleeDamage);
         yield return new WaitForSeconds(2f);
-        if (enemy1Stats.isDead)
+        if (enemy1Stats.isDead && enemy2Stats.isDead)
         {
             state = BattleState.Won;
             EndBattle();
@@ -110,10 +149,26 @@ public class BattleHandler : MonoBehaviour
 
     IEnumerator PlayerHeal()
     {
-        playerStats.Heal(50);
+        playerStats.Heal();
         dialogueText.text = "you healed yourself.";
         yield return new WaitForSeconds(1f);
     }
+
+    IEnumerator PlayerDefense()
+    {
+        playerStats.Defense();
+        dialogueText.text = "you defended yourself.";
+        yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator PlayerRun()
+    {
+        dialogueText.text = "you ran from the battle";
+        gameState.EndBattle(false);
+        yield return new WaitForSeconds(3f);
+    }
+    #endregion
+
 
     IEnumerator EnemyTurn()
     {

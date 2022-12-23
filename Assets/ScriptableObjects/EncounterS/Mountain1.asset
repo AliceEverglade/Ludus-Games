@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   isBossEncounter: 0
-  index: 0
-  difficultyModifier: 0
+  index: 5
+  difficultyModifier: 1
   enemy1: {fileID: 0}
   enemy2: {fileID: 0}
   prefab: {fileID: 0}
