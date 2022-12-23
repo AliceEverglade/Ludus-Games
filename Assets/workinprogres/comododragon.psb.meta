@@ -93,6 +93,28 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1163
+      y: 1154
+      width: 138
+      height: 128
+    spriteID: d8063f6e6da2af14fad4965c2b5246aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1163, y: 1154}
+    spritePosition: {x: 814, y: 2564}
   - name: comododragon hoed stuk
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -6427,6 +6449,16 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: Layer 1
+    spriteName: Layer 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d8063f6e6da2af14fad4965c2b5246aa
+    layerID: 175
+    mosaicPosition: {x: 1163, y: 1154}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: comododragon hoed stuk
     spriteName: comododragon hoed stuk
     isGroup: 0
