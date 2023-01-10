@@ -15,20 +15,20 @@ MonoBehaviour:
   name: Sir Nugget
   isDead: 0
   isDefending: 0
-  actionPoints: 0
-  maxHP: 0
-  currentHP: 0
-  maxMana: 0
-  currentMana: 0
-  meleeDamage: 0
-  rangedDamage: 0
-  magic1Damage: 0
+  actionPoints: 3
+  maxHP: 1000
+  currentHP: 1000
+  maxMana: 200
+  currentMana: 200
+  meleeDamage: 500
+  rangedDamage: 300
+  magic1Damage: 800
   magic1ManaCost: 0
-  magic2Damage: 0
+  magic2Damage: 1400
   magic2ManaCost: 0
-  critChance: 0
-  critDamage: 0
-  defense: 0
+  critChance: 0.4
+  critDamage: 2
+  defense: 500
   currentDefense: 0
-  healing: 0
+  healing: 300
   prefab: {fileID: 3504745578366505054, guid: cbb340f9360261040be51353355c3edb, type: 3}
