@@ -12,91 +12,78 @@ public class GameStateSO : ScriptableObject
 
     public void EndBattle(bool didWin)
     {
+        //set index
+        //load next scene, Map or Fight depending on the scenario
+        if (!didWin)
+        {
+            SetIndexOnLose();
+            SceneManager.LoadScene("Map");
+        }
+        else
+        {
+            bool nextFight = SetIndexOnWin();
+            if (nextFight)
+            {
+                SceneManager.LoadScene("Fight");
+            }
+            else
+            {
+                SceneManager.LoadScene("Map");
+            }
+        }
+    }
+
+    private bool SetIndexOnWin()
+    {
         switch (EncounterIndex)
         {
             case 1:
-                if (didWin)
-                {
-                    EncounterIndex++;
-                    SceneManager.LoadScene("Fight");
-                }
-                else
-                {
-                    EncounterIndex = 1;
-                    SceneManager.LoadScene("Map");
-                }
-                break;
+            case 4:
+            case 7:
+                EncounterIndex++;
+                return true;
             case 2:
-                if (didWin)
-                {
-                    EncounterIndex++;
-                    SceneManager.LoadScene("Map");
-                }
-                else
-                {
-                    EncounterIndex = 1;
-                    SceneManager.LoadScene("Map");
-                }
+            case 3:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+                EncounterIndex++;
+                return false;
+            case 10:
+                EncounterIndex = 1;
+                SceneManager.LoadScene("Credits");
+                return false;
+            default:
+                return false;
+        }
+    }
+
+    private void SetIndexOnLose()
+    {
+        switch (EncounterIndex)
+        {
+            case 1:
+            case 2:
+                EncounterIndex = 1;
                 break;
             case 3:
-                if (didWin)
-                {
-                    EncounterIndex++;
-                    SceneManager.LoadScene("Fight");
-                }
-                else
-                {
-                    EncounterIndex = 3;
-                    SceneManager.LoadScene("Map");
-                }
+                EncounterIndex = 3;
                 break;
             case 4:
-                if (didWin)
-                {
-                    EncounterIndex++;
-                    SceneManager.LoadScene("Map");
-                }
-                else
-                {
-                    EncounterIndex = 3;
-                    SceneManager.LoadScene("Map");
-                }
-                break;
             case 5:
-                if (didWin)
-                {
-                    EncounterIndex++;
-                    SceneManager.LoadScene("Fight");
-                }
-                else
-                {
-                    EncounterIndex = 5;
-                    SceneManager.LoadScene("Map");
-                }
+                EncounterIndex = 4;
                 break;
             case 6:
-                if (didWin)
-                {
-                    EncounterIndex++;
-                    SceneManager.LoadScene("Fight");
-                }
-                else
-                {
-                    EncounterIndex = 5;
-                    SceneManager.LoadScene("Map");
-                }
+                EncounterIndex = 6;
                 break;
             case 7:
-                if (didWin)
-                {
-                    EncounterIndex++;
-                    SceneManager.LoadScene("Credits");
-                }
-                else
-                {
-                    EncounterIndex = 1;
-                    SceneManager.LoadScene("Map");
-                }
+            case 8:
+            case 9:
+                EncounterIndex = 9;
+                break;
+            case 10:
+                EncounterIndex = 10;
                 break;
         }
     }

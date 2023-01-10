@@ -12,6 +12,7 @@ public class PlayerSO : ScriptableObject
     public bool isDefending;
 
     public int actionPoints;
+    public int currentActionPoints;
 
     public float maxHP;
     public float currentHP;
@@ -34,6 +35,8 @@ public class PlayerSO : ScriptableObject
     public void StartTurn()
     {
         //tick damage from effects
+        Debug.Log("player turn started");
+        currentActionPoints = actionPoints;
         currentDefense = 0;
     }
 

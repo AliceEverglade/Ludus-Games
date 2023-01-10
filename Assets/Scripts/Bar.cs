@@ -20,8 +20,7 @@ public class Bar : MonoBehaviour
     {
         encounter = gameState.EncounterList[gameState.EncounterIndex - 1];
         playerStats = gameState.player;
-        enemy1Stats = encounter.enemy1;
-        enemy2Stats = encounter.enemy2;
+        enemy1Stats = encounter.enemy;
     }
 
     private void Update()
@@ -38,14 +37,9 @@ public class Bar : MonoBehaviour
                 barSlider.value = playerStats.currentHP;
                 barText.text = barSlider.value.ToString();
                 break;
-            case "EnemyStation_1":
+            case "EnemyStation":
                 barSlider.maxValue = enemy1Stats.maxHP;
                 barSlider.value = enemy1Stats.currentHP;
-                barText.text = barSlider.value.ToString();
-                break;
-            case "EnemyStation_2":
-                barSlider.maxValue = enemy2Stats.maxHP;
-                barSlider.value = enemy2Stats.currentHP;
                 barText.text = barSlider.value.ToString();
                 break;
         }

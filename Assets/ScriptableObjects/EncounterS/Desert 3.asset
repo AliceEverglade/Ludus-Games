@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7966a960fe7612a4a8ab12efdf1db523, type: 3}
-  m_Name: Desert2
+  m_Name: Desert 3
   m_EditorClassIdentifier: 
   name: 
   isBossEncounter: 1
-  index: 4
+  index: 6
   difficultyModifier: 1
-  enemy1: {fileID: 11400000, guid: ba903ad03f66e114884cded05295dd39, type: 2}
-  enemy2: {fileID: 11400000, guid: 97de44c9e4c490643951fccdc2b2cb5c, type: 2}
+  enemy: {fileID: 11400000, guid: 97de44c9e4c490643951fccdc2b2cb5c, type: 2}
   prefab: {fileID: 0}

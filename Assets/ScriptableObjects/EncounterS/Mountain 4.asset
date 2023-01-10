@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7966a960fe7612a4a8ab12efdf1db523, type: 3}
-  m_Name: Mountain3
+  m_Name: Mountain 4
   m_EditorClassIdentifier: 
   name: 
   isBossEncounter: 1
-  index: 7
+  index: 10
   difficultyModifier: 1
-  enemy1: {fileID: 0}
-  enemy2: {fileID: 0}
+  enemy: {fileID: 11400000, guid: 14aa02ac7c1b07f479cc39e7e46175e4, type: 2}
   prefab: {fileID: 0}
