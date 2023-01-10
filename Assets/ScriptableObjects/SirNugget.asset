@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a07a51b6d2346468ee0ec5e427cb78, type: 3}
   m_Name: SirNugget
   m_EditorClassIdentifier: 
-  name: Sir Nugget
+  name: 
   isDead: 0
   isDefending: 0
   actionPoints: 0
@@ -31,4 +31,4 @@ MonoBehaviour:
   defense: 0
   currentDefense: 0
   healing: 0
-  prefab: {fileID: 3504745578366505054, guid: cbb340f9360261040be51353355c3edb, type: 3}
+  prefab: {fileID: 0}
