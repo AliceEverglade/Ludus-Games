@@ -20,6 +20,12 @@ public class MusicHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         switch (SceneManager.GetActiveScene().name)
         {
             case "Fight":
@@ -51,11 +57,6 @@ public class MusicHandler : MonoBehaviour
                 break;
 
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (musicState.inBattle == true && !source1.isPlaying)
         {
             source1.PlayOneShot(clip1);
