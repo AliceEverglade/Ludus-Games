@@ -8,5 +8,6 @@ public class MusicStateSO : ScriptableObject
     public bool inBattle;
     public bool ending;
     public bool bgmus;
+    public bool titlemus;
 
 }
