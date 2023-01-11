@@ -15,21 +15,24 @@ public class Map : MonoBehaviour
         switch (gameState.EncounterIndex)
         {
             case 1:
+            case 2:
                 currentBackgroundImage = backgroundImages[0];
                 break;
             case 3:
                 currentBackgroundImage = backgroundImages[1];
                 break;
             case 4:
+            case 5:
                 currentBackgroundImage = backgroundImages[2];
                 break;
             case 6:
                 currentBackgroundImage = backgroundImages[3];
                 break;
-            case 9:
+            case 7:
+            case 8:
                 currentBackgroundImage = backgroundImages[4];
                 break;
-            case 10:
+            case 9:
                 currentBackgroundImage = backgroundImages[5];
                 break;
 

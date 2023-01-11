@@ -9,8 +9,7 @@ public class Bar : MonoBehaviour
     [SerializeField] private GameStateSO gameState;
     private EncounterSO encounter;
     private PlayerSO playerStats;
-    private EnemySO enemy1Stats;
-    private EnemySO enemy2Stats;
+    private EnemySO enemyStats;
 
 
     [SerializeField] private GameObject target;
@@ -20,7 +19,7 @@ public class Bar : MonoBehaviour
     {
         encounter = gameState.EncounterList[gameState.EncounterIndex - 1];
         playerStats = gameState.player;
-        enemy1Stats = encounter.enemy;
+        enemyStats = encounter.enemy;
     }
 
     private void Update()
@@ -38,8 +37,8 @@ public class Bar : MonoBehaviour
                 barText.text = barSlider.value.ToString();
                 break;
             case "EnemyStation":
-                barSlider.maxValue = enemy1Stats.maxHP;
-                barSlider.value = enemy1Stats.currentHP;
+                barSlider.maxValue = enemyStats.maxHP;
+                barSlider.value = enemyStats.currentHP;
                 barText.text = barSlider.value.ToString();
                 break;
         }

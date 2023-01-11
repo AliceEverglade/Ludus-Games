@@ -31,6 +31,7 @@ public class PlayerSO : ScriptableObject
     public float healing;
 
     public GameObject prefab;
+    public Vector3 offset;
 
     public void StartTurn()
     {
@@ -38,6 +39,11 @@ public class PlayerSO : ScriptableObject
         Debug.Log("player turn started");
         currentActionPoints = actionPoints;
         currentDefense = 0;
+    }
+
+    public bool DealDamage(EnemySO target, float damage)
+    {
+        return target.isDead = target.TakeDamage(damage);
     }
 
     public bool TakeDamage(float damage)

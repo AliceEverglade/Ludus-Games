@@ -40,13 +40,13 @@ public class GameStateSO : ScriptableObject
             case 1:
             case 4:
             case 7:
+            case 8:
                 EncounterIndex++;
                 return true;
             case 2:
             case 3:
             case 5:
             case 6:
-            case 8:
             case 9:
                 EncounterIndex++;
                 return false;

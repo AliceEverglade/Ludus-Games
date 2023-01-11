@@ -24,12 +24,18 @@ public class EnemySO : ScriptableObject
 
 
     public GameObject prefab;
+    public Vector3 offset;
 
     public void StartTurn()
     {
         //deal DOT damage
         Debug.Log("enemy turn started");
         currentActionPoints = actionPoints;
+    }
+
+    public bool DealDamage(PlayerSO target, float damage)
+    {
+        return target.isDead = target.TakeDamage(damage);
     }
 
     public bool TakeDamage(float damage)

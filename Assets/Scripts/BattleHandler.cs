@@ -19,6 +19,9 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private Transform enemyStation;
 
     [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private TMP_Text encounterNameText;
+    [SerializeField] private TMP_Text playerNameText;
+    [SerializeField] private TMP_Text enemyNameText;
     [SerializeField] private Slider playerHP;
     [SerializeField] private Slider enemyHP;
 
@@ -43,11 +46,18 @@ public class BattleHandler : MonoBehaviour
         //encounter init
         encounter = gameState.EncounterList[gameState.EncounterIndex-1];
         Debug.Log("Encounter Loaded. number: " + gameState.EncounterIndex);
+        encounterNameText.text = encounter.name;
 
         //player init
         playerStats = gameState.player;
         player = playerStats.prefab;
-        GameObject playerGO = Instantiate(player, playerStation);
+
+        GameObject playerGO = Instantiate(player, 
+            new Vector3(playerStation.position.x, 
+            playerStation.position.y, 
+            playerStation.position.z) + playerStats.offset, 
+            Quaternion.identity);
+
         Debug.Log(playerStats.name + " loaded");
         playerStats.currentHP = playerStats.maxHP;
         playerStats.currentMana = playerStats.maxMana;
@@ -58,7 +68,13 @@ public class BattleHandler : MonoBehaviour
         //enemy init
         enemyStats = encounter.enemy;
         enemy = enemyStats.prefab;
-        GameObject enemy1GO = Instantiate(enemy, enemyStation);
+
+        GameObject enemy1GO = Instantiate(enemy, 
+            new Vector3(enemyStation.position.x, 
+            enemyStation.position.y, 
+            enemyStation.position.z) + enemyStats.offset, 
+            Quaternion.identity);
+
         Debug.Log(enemyStats.name + " loaded");
         enemyStats.currentHP = enemyStats.maxHP;
         enemyStats.isDead = false;
@@ -125,9 +141,9 @@ public class BattleHandler : MonoBehaviour
     #region action enumerators
     IEnumerator PlayerAttack()
     {
-        //damage enemy
+        dialogueText.text = "you attack!";
         playerStats.currentActionPoints--;
-        enemyStats.isDead = enemyStats.TakeDamage(playerStats.meleeDamage);
+        playerStats.DealDamage(enemyStats,playerStats.meleeDamage);
         yield return new WaitForSeconds(2f);
         if (enemyStats.isDead)
         {
@@ -176,7 +192,7 @@ public class BattleHandler : MonoBehaviour
             dialogueText.text = "Enemy Attacks!";
             yield return new WaitForSeconds(1f);
             enemyStats.currentActionPoints--;
-            playerStats.isDead = playerStats.TakeDamage(enemyStats.damage);
+            enemyStats.DealDamage(playerStats,enemyStats.damage);
             dialogueText.text = "you take: " + enemyStats.damage + " damage";
             yield return new WaitForSeconds(1f);
             if (playerStats.isDead)
