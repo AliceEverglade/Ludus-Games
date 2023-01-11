@@ -15,12 +15,12 @@ MonoBehaviour:
   name: 
   isDead: 0
   isBoss: 0
-  actionPoints: 0
-  maxHP: 0
+  actionPoints: 1
+  maxHP: 100
   currentHP: 0
   damage: 0
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 8949879370265078838, guid: d2992c43edc25af45bb8a4a45749837d, type: 3}

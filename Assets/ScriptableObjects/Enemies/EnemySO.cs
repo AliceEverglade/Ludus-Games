@@ -12,6 +12,7 @@ public class EnemySO : ScriptableObject
     public bool isBoss;
 
     public int actionPoints;
+    public int currentActionPoints;
 
     public float maxHP;
     public float currentHP;
@@ -23,6 +24,13 @@ public class EnemySO : ScriptableObject
 
 
     public GameObject prefab;
+
+    public void StartTurn()
+    {
+        //deal DOT damage
+        Debug.Log("enemy turn started");
+        currentActionPoints = actionPoints;
+    }
 
     public bool TakeDamage(float damage)
     {

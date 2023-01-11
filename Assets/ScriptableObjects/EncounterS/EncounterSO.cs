@@ -13,8 +13,7 @@ public class EncounterSO : ScriptableObject
 
     public float difficultyModifier;
 
-    public EnemySO enemy1;
-    public EnemySO enemy2;
+    public EnemySO enemy;
 
     public GameObject prefab;
 }

@@ -12,6 +12,7 @@ public class PlayerSO : ScriptableObject
     public bool isDefending;
 
     public int actionPoints;
+    public int currentActionPoints;
 
     public float maxHP;
     public float currentHP;
@@ -26,22 +27,49 @@ public class PlayerSO : ScriptableObject
     public float critChance;
     public float critDamage;
     public float defense;
+    public float currentDefense;
     public float healing;
 
     public GameObject prefab;
 
+    public void StartTurn()
+    {
+        //tick damage from effects
+        Debug.Log("player turn started");
+        currentActionPoints = actionPoints;
+        currentDefense = 0;
+    }
+
     public bool TakeDamage(float damage)
     {
+        if(currentDefense > 0)
+        {
+            if(currentDefense < damage)
+            {
+                damage -= currentDefense;
+                currentDefense = 0;
+            }
+            else
+            {
+                currentDefense -= damage;
+                damage = 0;
+            }
+        }
         currentHP -= damage;
         return isDead = currentHP < 0 ? true : false;
     }
 
-    public void Heal(float amount)
+    public void Heal()
     {
-        currentHP += amount;
+        currentHP += healing;
         if(currentHP > maxHP)
         {
             currentHP = maxHP;
         }
+    }
+
+    public void Defense()
+    {
+        currentDefense = defense;
     }
 }
