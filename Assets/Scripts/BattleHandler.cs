@@ -46,6 +46,12 @@ public class BattleHandler : MonoBehaviour
         //encounter init
         encounter = gameState.EncounterList[gameState.EncounterIndex-1];
         Debug.Log("Encounter Loaded. number: " + gameState.EncounterIndex);
+        if(encounter.prefab != null)
+        {
+            Vector3 offset = encounter.prefab.transform.position;
+            Instantiate(encounter.prefab, transform.position + offset, Quaternion.identity, transform);
+        }
+        
         encounterNameText.text = encounter.name;
 
         //player init

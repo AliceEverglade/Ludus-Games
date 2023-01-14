@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameState
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 3b2f39a7c67200046855602646fa9cd4, type: 2}
-  EncounterIndex: 9
+  EncounterIndex: 1
   EncounterList:
   - {fileID: 11400000, guid: d4853feef998de8478f0323a880a962f, type: 2}
   - {fileID: 11400000, guid: e18af6cb8b50bdc49860fb16b5e8c3ba, type: 2}

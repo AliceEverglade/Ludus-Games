@@ -35,7 +35,7 @@ public class Map : MonoBehaviour
             case 9:
                 currentBackgroundImage = backgroundImages[5];
                 break;
-                case 10:
+                default:
                 SceneManager.LoadScene("Credits");
                 break;
 

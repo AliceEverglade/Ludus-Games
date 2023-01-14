@@ -17,4 +17,4 @@ MonoBehaviour:
   index: 9
   difficultyModifier: 1
   enemy: {fileID: 11400000, guid: 34c6e1fccc6d26d4aa1cb5bccd9ad161, type: 2}
-  prefab: {fileID: 0}
+  prefab: {fileID: 900024830218369515, guid: a9aebb8a7b0e73e4da1d4fc10a6d6e35, type: 3}

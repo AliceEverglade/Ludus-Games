@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreen : MonoBehaviour
 {
+    [SerializeField] private GameStateSO gameState;
     bool ready = false;
     // Start is called before the first frame update
     void Start()
     {
+        gameState.EncounterIndex = 1;
         StartCoroutine(Delay());
     }
 

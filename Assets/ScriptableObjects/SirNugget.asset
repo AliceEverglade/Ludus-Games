@@ -16,7 +16,7 @@ MonoBehaviour:
   isDead: 0
   isDefending: 0
   actionPoints: 3
-  currentActionPoints: 2
+  currentActionPoints: 3
   maxHP: 2000
   currentHP: 2000
   maxMana: 500
@@ -33,4 +33,4 @@ MonoBehaviour:
   currentDefense: 0
   healing: 300
   prefab: {fileID: 4411640917199330639, guid: 46e58e55c6a2c8c438dc7687f88a0181, type: 3}
-  offset: {x: 2, y: -0.5, z: 0}
+  offset: {x: 2, y: -1, z: 0}
