@@ -17,6 +17,8 @@ public class BattleHandler : MonoBehaviour
 
     [SerializeField] private Transform playerStation;
     [SerializeField] private Transform enemyStation;
+    private Animator playerAnim;
+    private Animator enemyAnim;
 
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private TMP_Text encounterNameText;
@@ -64,6 +66,7 @@ public class BattleHandler : MonoBehaviour
             playerStation.position.z) + playerStats.offset, 
             Quaternion.identity);
 
+        playerAnim = playerGO.GetComponent<Animator>();
         Debug.Log(playerStats.name + " loaded");
         playerStats.currentHP = playerStats.maxHP;
         playerStats.currentMana = playerStats.maxMana;
@@ -80,6 +83,10 @@ public class BattleHandler : MonoBehaviour
             enemyStation.position.y, 
             enemyStation.position.z) + enemyStats.offset, 
             Quaternion.identity);
+        if(enemy1GO.GetComponent<Animator>() != null)
+        {
+            enemyAnim = enemy1GO.GetComponent<Animator>();
+        }
 
         Debug.Log(enemyStats.name + " loaded");
         enemyStats.currentHP = enemyStats.maxHP;
@@ -149,7 +156,10 @@ public class BattleHandler : MonoBehaviour
     {
         dialogueText.text = "you attack!";
         playerStats.currentActionPoints--;
+        playerAnim.SetTrigger("Attack");
         playerStats.DealDamage(enemyStats,playerStats.meleeDamage);
+        yield return new WaitForSeconds(0.3f);
+        enemyAnim.SetTrigger("TakeDamage");
         yield return new WaitForSeconds(2f);
         if (enemyStats.isDead)
         {
@@ -167,6 +177,7 @@ public class BattleHandler : MonoBehaviour
     {
         playerStats.currentActionPoints--;
         playerStats.Heal();
+        playerAnim.SetTrigger("Magic");
         dialogueText.text = "you healed yourself.";
         yield return new WaitForSeconds(1f);
         actions();
@@ -176,6 +187,7 @@ public class BattleHandler : MonoBehaviour
     {
         playerStats.currentActionPoints--;
         playerStats.Defense();
+        playerAnim.SetTrigger("Magic");
         dialogueText.text = "you defended yourself.";
         yield return new WaitForSeconds(1f);
         actions();
@@ -196,8 +208,12 @@ public class BattleHandler : MonoBehaviour
         while(enemyStats.currentActionPoints > 0)
         {
             dialogueText.text = "Enemy Attacks!";
+            enemyAnim.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.3f);
+            enemyAnim.SetTrigger("TakeDamage");
             yield return new WaitForSeconds(1f);
             enemyStats.currentActionPoints--;
+
             enemyStats.DealDamage(playerStats,enemyStats.damage);
             dialogueText.text = "you take: " + enemyStats.damage + " damage";
             yield return new WaitForSeconds(1f);
