@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 2773134069258600753}
   - component: {fileID: 2773134069258600766}
   m_Layer: 0
-  m_Name: hedgehog`
+  m_Name: hedgehog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

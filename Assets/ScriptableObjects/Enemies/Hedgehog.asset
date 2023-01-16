@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Hedgehog
   m_EditorClassIdentifier: 
   name: Hedgehog
-  isDead: 0
+  isDead: 1
   isBoss: 0
   actionPoints: 0
+  currentActionPoints: 0
   maxHP: 100
-  currentHP: 20
+  currentHP: -900
   damage: 0
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 8949879370265078838, guid: d2992c43edc25af45bb8a4a45749837d, type: 3}
+  prefab: {fileID: 3941845300976163154, guid: b943f8a24b2881a468943a902494cac1, type: 3}
+  offset: {x: 0, y: 0, z: 0}

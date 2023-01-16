@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Raven
   m_EditorClassIdentifier: 
   name: Raven
-  isDead: 0
+  isDead: 1
   isBoss: 0
   actionPoints: 1
   currentActionPoints: 0
   maxHP: 100
-  currentHP: 0
+  currentHP: -900
   damage: 0
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 4357567441091443226, guid: ce10366be1799b7429c82bb768657ffb, type: 3}
+  prefab: {fileID: 4357567441091443226, guid: f4c57b759108b1a40b510d321fdf865e, type: 3}
   offset: {x: 0, y: 0, z: 0}

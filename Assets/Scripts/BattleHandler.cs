@@ -22,8 +22,8 @@ public class BattleHandler : MonoBehaviour
 
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private TMP_Text encounterNameText;
-    [SerializeField] private TMP_Text playerNameText;
-    [SerializeField] private TMP_Text enemyNameText;
+    //private TMP_Text playerNameText;
+    //private TMP_Text enemyNameText;
     [SerializeField] private Slider playerHP;
     [SerializeField] private Slider enemyHP;
 
@@ -51,7 +51,7 @@ public class BattleHandler : MonoBehaviour
         if(encounter.prefab != null)
         {
             Vector3 offset = encounter.prefab.transform.position;
-            Instantiate(encounter.prefab, transform.position + offset, Quaternion.identity, transform);
+            Instantiate(encounter.prefab , transform.position + offset, Quaternion.identity, transform);
         }
         
         encounterNameText.text = encounter.name;
@@ -94,11 +94,18 @@ public class BattleHandler : MonoBehaviour
 
 
 
-
-        dialogueText.text = "the battle has begun.";
+        if (enemyStats.isBoss)
+        {
+            dialogueText.text = "the Boss battle has begun.";
+        }
+        else
+        {
+            dialogueText.text = "the battle has begun.";
+        }
+        
         yield return new WaitForSeconds(2f);
         dialogueText.text = "Player turn:";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         state = BattleState.PlayerTurn;
         PlayerTurn();
     }
@@ -124,6 +131,7 @@ public class BattleHandler : MonoBehaviour
     #region button functions
     public void onAttackButton()
     {
+        Debug.Log("attack button clicked");
         if(state != BattleState.PlayerTurn)
             return;
 
@@ -154,13 +162,16 @@ public class BattleHandler : MonoBehaviour
     #region action enumerators
     IEnumerator PlayerAttack()
     {
+        Debug.Log("attack initiated");
         dialogueText.text = "you attack!";
         playerStats.currentActionPoints--;
         playerAnim.SetTrigger("Attack");
-        playerStats.DealDamage(enemyStats,playerStats.meleeDamage);
-        yield return new WaitForSeconds(0.3f);
-        enemyAnim.SetTrigger("TakeDamage");
-        yield return new WaitForSeconds(2f);
+        enemyStats.isDead = playerStats.DealDamage(enemyStats,playerStats.meleeDamage);
+        if(enemyAnim != null)
+        {
+            enemyAnim.SetTrigger("TakeDamage");
+        }
+        
         if (enemyStats.isDead)
         {
             state = BattleState.Won;
@@ -170,7 +181,7 @@ public class BattleHandler : MonoBehaviour
         {
             actions();
         }
-        
+        yield return new WaitForSeconds(2f);
     }
 
     IEnumerator PlayerHeal()
@@ -210,7 +221,10 @@ public class BattleHandler : MonoBehaviour
             dialogueText.text = "Enemy Attacks!";
             enemyAnim.SetTrigger("Attack");
             yield return new WaitForSeconds(0.3f);
-            enemyAnim.SetTrigger("TakeDamage");
+            if(enemyAnim != null)
+            {
+                enemyAnim.SetTrigger("TakeDamage");
+            }
             yield return new WaitForSeconds(1f);
             enemyStats.currentActionPoints--;
 

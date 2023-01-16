@@ -18,10 +18,11 @@ MonoBehaviour:
   actionPoints: 1
   currentActionPoints: 1
   maxHP: 100
-  currentHP: -350
+  currentHP: -900
   damage: 10
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 8949879370265078838, guid: d2992c43edc25af45bb8a4a45749837d, type: 3}
+  prefab: {fileID: 8584640025820667350, guid: 97a4e1cb3bda74b45859a600518c3993, type: 3}
+  offset: {x: 0, y: 0, z: 0}

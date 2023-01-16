@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Pigeon
   m_EditorClassIdentifier: 
   name: Pigeon
-  isDead: 0
+  isDead: 1
   isBoss: 0
   actionPoints: 1
   currentActionPoints: 0
   maxHP: 100
-  currentHP: 0
+  currentHP: -900
   damage: 0
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 8493233731467250372, guid: 8645046f5f22c9f49bcb7ae381e87345, type: 3}
+  prefab: {fileID: 3911208852067419371, guid: b11a0b0024772bd4fa68685036c188f6, type: 3}
   offset: {x: 0, y: 0, z: 0}

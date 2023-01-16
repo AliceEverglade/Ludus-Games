@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Seagull
   m_EditorClassIdentifier: 
   name: Seagull
-  isDead: 0
+  isDead: 1
   isBoss: 0
   actionPoints: 1
   currentActionPoints: 0
   maxHP: 600
-  currentHP: 0
+  currentHP: -400
   damage: 0
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 3911208852067419371, guid: 6856c513d7ae32043aaf13fe1a34ad02, type: 3}
+  prefab: {fileID: 3911208852067419371, guid: b11a0b0024772bd4fa68685036c188f6, type: 3}
   offset: {x: 0, y: 0, z: 0}

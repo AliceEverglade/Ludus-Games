@@ -16,5 +16,5 @@ MonoBehaviour:
   isBossEncounter: 0
   index: 7
   difficultyModifier: 1
-  enemy: {fileID: 11400000, guid: 2a2d32c5ffe126d488384449196f2b69, type: 2}
-  prefab: {fileID: 900024830218369515, guid: a9aebb8a7b0e73e4da1d4fc10a6d6e35, type: 3}
+  enemy: {fileID: 11400000, guid: deceadb60474bb248a1eb299e22004d1, type: 2}
+  prefab: {fileID: 900024830218369515, guid: 0070bd16e02bc2f40a2961deaa1e3fb3, type: 3}
