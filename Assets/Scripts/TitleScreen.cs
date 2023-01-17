@@ -10,7 +10,7 @@ public class TitleScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameState.EncounterIndex = 1;
+        gameState.EncounterIndex = 4;
         StartCoroutine(Delay());
     }
 

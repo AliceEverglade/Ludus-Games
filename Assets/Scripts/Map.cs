@@ -30,9 +30,10 @@ public class Map : MonoBehaviour
                 break;
             case 7:
             case 8:
+            case 9:
                 currentBackgroundImage = backgroundImages[4];
                 break;
-            case 9:
+            case 10:
                 currentBackgroundImage = backgroundImages[5];
                 break;
                 default:

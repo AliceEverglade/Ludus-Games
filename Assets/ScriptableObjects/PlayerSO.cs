@@ -62,7 +62,7 @@ public class PlayerSO : ScriptableObject
             }
         }
         currentHP -= damage;
-        return isDead = currentHP < 0 ? true : false;
+        return isDead = currentHP <= 0 ? true : false;
     }
 
     public void Heal()

@@ -41,7 +41,7 @@ public class EnemySO : ScriptableObject
     public bool TakeDamage(float damage)
     {
         currentHP -= damage;
-        return isDead = currentHP < 0 ? true : false;
+        return isDead = currentHP <= 0 ? true : false;
     }
     public void Heal(float amount)
     {

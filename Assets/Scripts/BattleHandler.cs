@@ -27,6 +27,9 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private Slider playerHP;
     [SerializeField] private Slider enemyHP;
 
+    [SerializeField] private GameObject winPrefab;
+    [SerializeField] private GameObject losePrefab;
+
     [SerializeField] private BattleState state;
     private enum BattleState
     {
@@ -167,6 +170,7 @@ public class BattleHandler : MonoBehaviour
         playerStats.currentActionPoints--;
         playerAnim.SetTrigger("Attack");
         enemyStats.isDead = playerStats.DealDamage(enemyStats,playerStats.meleeDamage);
+        yield return new WaitForSeconds(0.2f);
         if(enemyAnim != null)
         {
             enemyAnim.SetTrigger("TakeDamage");
@@ -181,7 +185,6 @@ public class BattleHandler : MonoBehaviour
         {
             actions();
         }
-        yield return new WaitForSeconds(2f);
     }
 
     IEnumerator PlayerHeal()
@@ -207,7 +210,8 @@ public class BattleHandler : MonoBehaviour
     IEnumerator PlayerRun()
     {
         dialogueText.text = "you ran from the battle";
-        gameState.EndBattle(false);
+        state = BattleState.Lost;
+        EndBattle();
         yield return new WaitForSeconds(3f);
     }
     #endregion
@@ -219,12 +223,13 @@ public class BattleHandler : MonoBehaviour
         while(enemyStats.currentActionPoints > 0)
         {
             dialogueText.text = "Enemy Attacks!";
-            enemyAnim.SetTrigger("Attack");
-            yield return new WaitForSeconds(0.3f);
             if(enemyAnim != null)
             {
-                enemyAnim.SetTrigger("TakeDamage");
+                enemyAnim.SetTrigger("Attack");
             }
+            
+            yield return new WaitForSeconds(0.2f);
+                playerAnim.SetTrigger("TakeDamage");
             yield return new WaitForSeconds(1f);
             enemyStats.currentActionPoints--;
 
@@ -251,14 +256,23 @@ public class BattleHandler : MonoBehaviour
         if(state == BattleState.Won)
         {
             dialogueText.text = "you've won!";
-            gameState.EndBattle(true);
+            StartCoroutine(EndBattleScene(winPrefab, true));
             // show upgrades, then go to next level
         }
         else if(state == BattleState.Lost)
         {
             dialogueText.text = "you lost :C";
-            gameState.EndBattle(false);
+            StartCoroutine(EndBattleScene(losePrefab, false));
             // go to home screen
         }
+    }
+
+    private IEnumerator EndBattleScene(GameObject endScreen, bool didWin)
+    {
+        Vector3 offset = endScreen.transform.position;
+        Instantiate(endScreen, transform.position + offset, Quaternion.identity, transform);
+        yield return new WaitForSeconds(1);
+        Debug.Log("go to next scene");
+        gameState.EndBattle(didWin);
     }
 }

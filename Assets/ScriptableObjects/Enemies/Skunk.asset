@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Skunk
   m_EditorClassIdentifier: 
   name: Skunk
-  isDead: 1
+  isDead: 0
   isBoss: 0
   actionPoints: 1
   currentActionPoints: 1
   maxHP: 100
-  currentHP: -900
+  currentHP: 100
   damage: 10
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 8584640025820667350, guid: 97a4e1cb3bda74b45859a600518c3993, type: 3}
+  prefab: {fileID: 4397536131001505846, guid: 09d5dc0b4190a47479da2d5f21f452b9, type: 3}
   offset: {x: 0, y: 0, z: 0}

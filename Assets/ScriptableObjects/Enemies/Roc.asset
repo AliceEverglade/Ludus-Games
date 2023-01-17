@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Roc
   m_EditorClassIdentifier: 
   name: 
-  isDead: 1
+  isDead: 0
   isBoss: 0
   actionPoints: 1
   currentActionPoints: 1
   maxHP: 500
-  currentHP: -500
+  currentHP: 500
   damage: 0
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 8076510558043413738, guid: d25a2257fb50bf045984d54fe2be9565, type: 3}
+  prefab: {fileID: 1296081643897095004, guid: d07400d640d28034f8df15e306204c18, type: 3}
   offset: {x: 0, y: 0, z: 0}

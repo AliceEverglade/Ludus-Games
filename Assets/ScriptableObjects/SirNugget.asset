@@ -16,12 +16,12 @@ MonoBehaviour:
   isDead: 0
   isDefending: 0
   actionPoints: 3
-  currentActionPoints: 3
+  currentActionPoints: 2
   maxHP: 2000
   currentHP: 2000
   maxMana: 500
   currentMana: 500
-  meleeDamage: 1000
+  meleeDamage: 200
   rangedDamage: 300
   magic1Damage: 600
   magic1ManaCost: 100

@@ -48,9 +48,10 @@ public class GameStateSO : ScriptableObject
             case 5:
             case 6:
             case 9:
+            case 10:
                 EncounterIndex++;
                 return false;
-            case 10:
+            case 11:
                 EncounterIndex = 1;
                 SceneManager.LoadScene("Credits");
                 return false;

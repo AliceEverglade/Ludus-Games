@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Snake
   m_EditorClassIdentifier: 
   name: 
-  isDead: 1
+  isDead: 0
   isBoss: 1
   actionPoints: 1
-  currentActionPoints: 0
-  maxHP: 100
-  currentHP: -900
-  damage: 0
+  currentActionPoints: 1
+  maxHP: 2000
+  currentHP: 2000
+  damage: 200
   specialDamage: 0
   critChance: 0
   critDamage: 0
   healing: 0
-  prefab: {fileID: 6481622863069621754, guid: 13a249b58f341384a9a8521a49eef3af, type: 3}
+  prefab: {fileID: 1462392623856563959, guid: c54ea155eb668be4897f340365074db4, type: 3}
   offset: {x: 0, y: 0, z: 0}

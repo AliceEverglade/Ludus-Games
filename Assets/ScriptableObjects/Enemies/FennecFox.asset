@@ -15,11 +15,11 @@ MonoBehaviour:
   name: 
   isDead: 0
   isBoss: 0
-  actionPoints: 1
+  actionPoints: 3
   currentActionPoints: 0
-  maxHP: 200
-  currentHP: 0
-  damage: 0
+  maxHP: 700
+  currentHP: 200
+  damage: 300
   specialDamage: 0
   critChance: 0
   critDamage: 0
